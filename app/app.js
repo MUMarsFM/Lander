@@ -16,7 +16,6 @@ var app = angular.module('lander', Dependencies)
     .controller('PlayerController', PlayerController);
 
 function Config($mdThemingProvider, $mdIconProvider, $location) {
-    $location.use
 
     $mdThemingProvider.theme('default')
         .primaryPalette('deep-orange')
