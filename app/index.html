@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MarsFM</title>
+    <meta name="description" content="The home of Maynooth University's Student Radio Station">
+    <meta property="og:title" content="MarsFM"/>
+    <meta property="og:description" content="The home of Maynooth University's Student Radio Station"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" type="text/css">
+    <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css" type="text/css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="table.css">
+    <base href="/">
+</head>
+
+<body>
+
+<div ng-app="lander" layout="column" layout-fill>
+    <header ng-controller="NavController">
+        <md-tabs md-border-bottom md-selected="selectedIndex" ng-init="initSlider()">
+            <md-tab>Home</md-tab>
+            <md-tab>Schedule</md-tab>
+            <md-tab>Get Involved</md-tab>
+        </md-tabs>
+    </header>
+
+    <md-content flex ng-view layout="column" layout-align="center start">
+
+    </md-content>
+
+    <div ng-controller="PlayerController">
+        <md-toolbar layout="row" layout-align="space-between center">
+            <div layout="column" layout-align="center start" class="md-padding playbar-info-wrapper">
+                <div class="md-title playbar-info">{{showtitle}}</div>
+                <div class="md-subhead playbar-info">{{tracktitle}}</div>
+            </div>
+
+            <div layout="row" layout-align="center center" class="playbar-buttons">
+                <md-button class="md-icon-button playbar-button" aria-label="Play" ng-click="togglePlayback()">
+                    <md-icon md-font-library="material-icons" class="material-icons playbar-play-icon">
+                        {{playicon}}
+                    </md-icon>
+                </md-button>
+
+                <md-button class="md-icon-button playbar-button" aria-label="Volume" ng-click="muted = !muted">
+                    <md-icon md-font-library="material-icons"
+                             class="material-icons volume-icon">{{volumeicon}}
+                    </md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+    </div>
+</div>
+
+<!-- Dependencies -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/soundmanager2/script/soundmanager2.js"></script>
+
+<!-- Main -->
+<script src="app.js"></script>
+
+<!-- View Modules -->
+<script src="home/home.js"></script>
+<script src="schedule/schedule.js"></script>
+<script src="getInvolved/getInvolved.js"></script>
+
+<!-- Components -->
+<script src="components/schedule/schedule.js"></script>
+</body>
+</html>

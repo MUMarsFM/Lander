@@ -1,0 +1,19 @@
+<div layout-fill flex layout="column" layout-align="end center">
+    <md-card id="home-card">
+        <md-card-content layout="column" layout-sm="column" layout-align="center center">
+            <div hide-gt-sm>
+                <h1 class="md-display-1 home-welcome">Welcome to</h1>
+                <img class="home-logo" src="img/logo.png">
+            </div>
+
+            <div layout="row" layout-align="space-around center">
+                <md-button class="md-icon-button" ng-href="{{facebook}}" target="_blank">
+                    <md-icon class="material-icons social-icons" md-svg-src="facebook"></md-icon>
+                </md-button>
+                <md-button class="md-icon-button" ng-href="{{twitter}}" target="_blank">
+                    <md-icon class="material-icons social-icons" md-svg-src="twitter"></md-icon>
+                </md-button>
+            </div>
+        </md-card-content>
+    </md-card>
+</div>

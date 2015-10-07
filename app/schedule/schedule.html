@@ -1,0 +1,23 @@
+<div layout-fill flex layout="column" layout-align-sm="start center" layout-align-gt-sm="center center" >
+    <md-card>
+        <md-card-content>
+            <md-tabs md-selected="todaysDay" md-border-bottom md-dynamic-height>
+                <md-tab ng-repeat="day in events.days" label="{{day.day}}">
+                    <span ng-if="day.events.length == 0">No shows today</span>
+                    <table ng-if="day.events.length != 0" class="body-whiteframe table">
+                        <thead>
+                        <tr>
+                            <th>When</th>
+                            <th>Show</th>
+                        </tr>
+                        </thead>
+                        <tr ng-repeat="e in day.events">
+                            <td>{{e.start | date : "HH:mm"}} - {{e.end | date : "HH:mm"}}</td>
+                            <td>{{e.name}}</td>
+                        </tr>
+                    </table>
+                </md-tab>
+            </md-tabs>
+        </md-card-content>
+    </md-card>
+</div>

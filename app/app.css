@@ -1,0 +1,57 @@
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 48px; /* Preferred icon size */
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.social-icons {
+    font-size: 30px;
+}
+
+@media (min-width: 600px) {
+    body > div > md-content {
+        background: #fafafa url(img/background.jpg) no-repeat bottom;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 600px) {
+    body > div > md-content {
+        background-color: #fafafa;
+    }
+}
+
+body > div > md-content > div > md-card {
+    max-width: 700px;
+    width: inherit;
+}
+
+.home-logo {
+    margin: 0 auto;
+    max-height: 200px;
+    width: 100%;
+    max-width: 200px;
+}
+
+#home-card {
+    width:auto;
+}
