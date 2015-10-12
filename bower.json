@@ -2,7 +2,7 @@
   "name": "marsfm-lander",
   "description": "MarsFM.ie Lander",
   "version": "0.0.0",
-  "homepage": "https://github.com/marsfm/lander",
+  "homepage": "https://github.com/MUMarsFM/Lander",
   "license": "MIT",
   "private": true,
   "dependencies": {
