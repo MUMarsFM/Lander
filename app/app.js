@@ -26,7 +26,7 @@ function Config($mdThemingProvider, $mdIconProvider, $location) {
         .icon('twitter', 'img/icons/twitter.svg', 24)
         .icon('instagram', 'img/icons/instagram.svg', 24);
 
-    soundManager.setup({
+/*    soundManager.setup({
         url: 'bower_components/soundmanager2/swf/',
         flashVersion: 9,
         preferFlash: false,
@@ -36,7 +36,7 @@ function Config($mdThemingProvider, $mdIconProvider, $location) {
                 url: ["http://stream.marsfm.ie/listenogg", "http://stream.marsfm.ie/listen"]
             });
         }
-    });
+    });*/
 }
 
 function NavController($scope, $location) {
@@ -102,21 +102,19 @@ function PlayerController($scope, $interval, scheduleAPI) {
     $scope.playing = false;
     $scope.muted = false;
 
-    $scope.$watch('muted', function () {
-        $scope.volumeicon = $scope.muted ? 'volume_off' : 'volume_up';
-        $scope.muted ? soundManager.mute() : soundManager.unmute();
-    })
+    $scope.toggleMuteIcon = function () {
+        $scope.muted = !$scope.muted;
+    }
 
-    $scope.togglePlayback = function () {
+    $scope.togglePlayIcon = function () {
         if ($scope.playing) {
             $scope.playicon = 'play_arrow';
-            soundManager.stop('stream');
-            soundManager.unload('stream');
             $scope.playing = false;
         } else {
             $scope.playicon = 'stop';
-            soundManager.start('stream');
             $scope.playing = true;
         }
     };
+
+
 }

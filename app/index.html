@@ -30,25 +30,45 @@
 
     </md-content>
 
+
     <div ng-controller="PlayerController">
         <md-toolbar layout="row" layout-align="space-between center">
-            <div layout="column" layout-align="center start" class="md-padding playbar-info-wrapper">
+            <div layout="column" layout-align="center start" class="md-padding playbar-info-wrapper" ng-cloak>
                 <div class="md-title playbar-info">{{showtitle}}</div>
                 <div class="md-subhead playbar-info">{{tracktitle}}</div>
             </div>
 
             <div layout="row" layout-align="center center" class="playbar-buttons">
-                <md-button class="md-icon-button playbar-button" aria-label="Play" ng-click="togglePlayback()">
-                    <md-icon md-font-library="material-icons" class="material-icons playbar-play-icon">
-                        {{playicon}}
-                    </md-icon>
-                </md-button>
-
-                <md-button class="md-icon-button playbar-button" aria-label="Volume" ng-click="muted = !muted">
-                    <md-icon md-font-library="material-icons"
-                             class="material-icons volume-icon">{{volumeicon}}
-                    </md-icon>
-                </md-button>
+                <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+                <div id="jp_container_1" class="jp-audio-stream" role="application" aria-label="media player">
+                    <div class="jp-type-single">
+                        <div class="jp-gui jp-interface" layout="row">
+                            <div class="jp-controls">
+                                <md-button class="md-icon-button playbar-button jp-play" aria-label="Play"
+                                           ng-click="togglePlayIcon()">
+                                    <md-icon md-font-library="material-icons" class="material-icons playbar-play-icon"
+                                             ng-cloak>
+                                        {{playicon}}
+                                    </md-icon>
+                                </md-button>
+                            </div>
+                            <div class="jp-volume-controls" ng-cloak>
+                                <md-button class="md-icon-button playbar-button jp-mute" aria-label="Volume"
+                                           ng-click="toggleMuteIcon()" ng-hide="!muted">
+                                    <md-icon md-font-library="material-icons"
+                                             class="material-icons volume-icon">volume_off
+                                    </md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button playbar-button jp-volume-max" aria-label="Volume"
+                                           ng-click="toggleMuteIcon()" ng-hide="muted">
+                                    <md-icon md-font-library="material-icons"
+                                             class="material-icons volume-icon">volume_up
+                                    </md-icon>
+                                </md-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </md-toolbar>
     </div>
@@ -61,7 +81,8 @@
 <script src="bower_components/angular-aria/angular-aria.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-material/angular-material.js"></script>
-<script src="bower_components/soundmanager2/script/soundmanager2.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/jPlayer/dist/jplayer/jquery.jplayer.min.js"></script>
 
 <!-- Main -->
 <script src="app.js"></script>
@@ -73,5 +94,43 @@
 
 <!-- Components -->
 <script src="components/schedule/schedule.js"></script>
+
+<script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function () {
+
+        var stream = {
+                    oga: "http://stream.marsfm.ie/listen.ogg",
+                    mp3: "http://stream.marsfm.ie/listen.mp3"
+                },
+                ready = false;
+
+        $("#jquery_jplayer_1").jPlayer({
+            ready: function (event) {
+                ready = true;
+                $(this).jPlayer("setMedia", stream);
+            },
+            pause: function () {
+                $(this).jPlayer("clearMedia");
+            },
+            error: function (event) {
+                if (ready && event.jPlayer.error.type === $.jPlayer.error.URL_NOT_SET) {
+                    // Setup the media stream again and play it.
+                    $(this).jPlayer("setMedia", stream).jPlayer("play");
+                }
+            },
+            swfPath: "bower_components/jPlayer/dist/jplayer/jquery.jplayer.swf",
+            supplied: "oga, mp3",
+            preload: "none",
+            wmode: "window",
+            useStateClassSkin: true,
+            autoBlur: false,
+            keyEnabled: true
+        });
+
+        $("#jquery_jplayer_1").jPlayer("setMedia", stream).jPlayer("play").jPlayer("stop");
+    });
+    //]]>
+</script>
 </body>
 </html>

@@ -7,14 +7,12 @@
   "private": true,
   "dependencies": {
     "angular": "~1.4.0",
-    "angular-loader": "~1.4.0",
-    "angular-mocks": "~1.4.0",
     "angular-resource": "~1.4.0",
     "angular-route": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
     "mdi": "~1.2.65",
     "normalize.css": "~3.0.3",
-    "soundmanager2": "*",
-    "angular-material": "~0.11.2"
+    "angular-material": "0.11.2",
+    "jPlayer": "jplayer#~2.9.2"
   }
 }

@@ -2,7 +2,7 @@
     <md-card>
         <md-card-content>
             <md-tabs md-selected="todaysDay" md-border-bottom md-dynamic-height>
-                <md-tab ng-repeat="day in events.days" label="{{day.day}}">
+                <md-tab ng-repeat="day in events.days" label="{{day.day}}" ng-cloak>
                     <span ng-if="day.events.length == 0">No shows today</span>
                     <table ng-if="day.events.length != 0" class="body-whiteframe table">
                         <thead>
