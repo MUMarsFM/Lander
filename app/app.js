@@ -25,18 +25,6 @@ function Config($mdThemingProvider, $mdIconProvider, $location) {
         .icon('facebook', 'img/icons/facebook.svg', 24)
         .icon('twitter', 'img/icons/twitter.svg', 24)
         .icon('instagram', 'img/icons/instagram.svg', 24);
-
-/*    soundManager.setup({
-        url: 'bower_components/soundmanager2/swf/',
-        flashVersion: 9,
-        preferFlash: false,
-        onready: function () {
-            soundManager.createSound({
-                id: "stream",
-                url: ["http://stream.marsfm.ie/listenogg", "http://stream.marsfm.ie/listen"]
-            });
-        }
-    });*/
 }
 
 function NavController($scope, $location) {
@@ -115,6 +103,4 @@ function PlayerController($scope, $interval, scheduleAPI) {
             $scope.playing = true;
         }
     };
-
-
 }
