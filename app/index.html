@@ -45,7 +45,7 @@
                         <div class="jp-gui jp-interface" layout="row">
                             <div class="jp-controls">
                                 <md-button class="md-icon-button playbar-button jp-play" aria-label="Play"
-                                           ng-click="togglePlayIcon()">
+                                           ng-click="togglePlayIcon()" onclick="$('#jquery_jplayer_1').jPlayer('play')">
                                     <md-icon md-font-library="material-icons" class="material-icons playbar-play-icon"
                                              ng-cloak>
                                         {{playicon}}
@@ -128,7 +128,7 @@
             keyEnabled: true
         });
 
-        $("#jquery_jplayer_1").jPlayer("setMedia", stream).jPlayer("play").jPlayer("stop");
+        /*$("#jquery_jplayer_1").jPlayer("setMedia", stream).jPlayer("play").jPlayer("stop");*/
     });
     //]]>
 </script>
